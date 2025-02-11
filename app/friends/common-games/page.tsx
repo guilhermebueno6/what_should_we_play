@@ -50,7 +50,7 @@ export default function ShowCommonGamesPage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {games.map((game) => (
                     <div key={game.appid} className="p-4 border rounded-lg shadow-lg cursor-pointer transition-all flex flex-col items-center game-card">
-                        <Image src={`https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg`} alt={game.name} width={96} height={96} className="w-24 h-24 object-cover rounded-lg" />
+                        <Image unoptimized src={`https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg`} alt={game.name} width={96} height={96} className="w-24 h-24 object-cover rounded-lg" />
                         <h2 className="text-lg font-bold mt-2">{game.name}</h2>
                     </div>
                 ))}
