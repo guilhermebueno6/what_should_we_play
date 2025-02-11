@@ -40,17 +40,29 @@ export default function SelectFriendsPage() {
     console.log(selectedFriends)
   };
   function nextStep() {
-    console.log(selectedFriends)
+    if(Object.keys(selectedFriends).length === 0) {
+      alert('Please select at least one friend')
+      return
+    }
+    sessionStorage.setItem('selectedFriends', JSON.stringify(selectedFriends))
+    window.location.replace('/friends/common-games')
+
   }
 
   return (
     <main className="min-h-screen bg-gray-900 text-white p-6">
+      <a
+                href="/"
+                className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
+            >
+                Go Back
+            </a>
   <h1 className="text-2xl font-bold mb-6 text-center">Select Your Friends</h1>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+  <div className="flex flex-wrap gap-4 ">
     {friends.map((friend) => (
       <div
         key={friend.steamid}
-        className={`p-4 border rounded-lg shadow-lg cursor-pointer transition-all flex flex-col items-center
+        className={`p-4 border rounded-lg shadow-lg cursor-pointer transition-all flex flex-col items-center w-48 h-48
           ${
             selectedFriends.includes(friend.steamid)
               ? "bg-lime-300 text-black"
@@ -63,12 +75,15 @@ export default function SelectFriendsPage() {
           alt={friend.personaname}
           className="w-20 h-20 rounded-full mb-2 border-2 border-gray-300"
         />
-        <p className="text-lg font-semibold">{friend.personaname}</p>
-        <p className="text-sm text-gray-400">{friend.steamid}</p>
+        <p className="text-lg font-semibold text-center mt-3">{friend.personaname}</p>
+
       </div>
     ))}
   </div>
-  <button onClick={nextStep}>Next</button>
+  <div className="flex justify-center mt-6">
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={nextStep}>Next</button>
+  </div>
+  
 </main>
 
   );

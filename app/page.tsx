@@ -1,5 +1,7 @@
 'use client';
 
+import { redirect } from 'next/dist/server/api-utils';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 export default function SteamIDForm() {
@@ -16,7 +18,7 @@ export default function SteamIDForm() {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     sessionStorage.setItem('steamID', steamID);
-    alert('Steam ID saved successfully!');
+    window.location.replace('/friends/select');
   };
 
   return (
