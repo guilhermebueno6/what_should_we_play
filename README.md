@@ -1,13 +1,15 @@
 # What Should We Play?
 
-Welcome to the "What Should We Play?" project! This application helps you decide what game to play next based on your preferences and past gameplay.
+Welcome to the "What Should We Play?" project! This application helps you and your friends decide what game to play next by showing all the games you have in common.
+
+**Note:** For this to work, users need to have their profiles public on Steam.
 
 ## Features
 
-- **Game Recommendations**: Get personalized game recommendations.
-- **User Profiles**: Create and manage user profiles.
-- **Game Library**: Maintain a library of your favorite games.
-- **Reviews and Ratings**: Rate and review games you've played.
+- **Common Games Visualization**: Easily see which games you and your friends have in common.
+- **Friend Selection**: Select friends to compare game libraries with.
+- **Public Profiles**: Works with public Steam profiles to gather game data.
+
 
 If you just want to use the service, you can go to [https://what-should-we-play.vercel.app/](https://what-should-we-play.vercel.app/)
 
