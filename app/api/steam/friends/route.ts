@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from 'axios';
+import axios from 'axios';
 import '../../../../envConfig'
 
 type Friend = {
@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
 async function getFriendNames(friends: Friend[], ){
     let csSteamId: string = ""
 
-    for (let friend of friends) {
+    for (const friend of friends) {
         if(csSteamId) {
             csSteamId += ","
         }
@@ -53,7 +53,7 @@ async function getFriendNames(friends: Friend[], ){
     const clientResponse = await client.get(`?key=${steamApiKey}&steamids=${csSteamId}`)
 
     // console.log(clientResponse.data.response.players)
-    let friendResponse = clientResponse.data.response.players
+    const friendResponse = clientResponse.data.response.players
 
     return friendResponse
 }
