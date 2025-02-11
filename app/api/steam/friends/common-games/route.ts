@@ -45,7 +45,7 @@ async function getGames(steamID: string) {
             }
         );
 
-        const games: Game[] = response.data.response.games.map((game: any) => ({
+        const games: Game[] = response.data.response.games.map((game: Game) => ({
             appid: game.appid,
             name: game.name,
             playtime_forever: game.playtime_forever,

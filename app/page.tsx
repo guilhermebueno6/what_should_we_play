@@ -1,14 +1,12 @@
 'use client';
 
-import { redirect } from 'next/dist/server/api-utils';
-import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 export default function SteamIDForm() {
   const [steamID, setSteamID] = useState('');
 
   useEffect(() => {
-    // Load Steam ID from session storage if available
+
     const storedSteamID = sessionStorage.getItem('steamID');
     if (storedSteamID) {
       setSteamID(storedSteamID);

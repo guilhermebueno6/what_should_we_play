@@ -1,5 +1,7 @@
 "use client"; // Required for interactivity
 
+import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 type Friend = {
@@ -51,12 +53,13 @@ export default function SelectFriendsPage() {
 
   return (
     <main className="min-h-screen bg-gray-900 text-white p-6">
-      <a
-                href="/"
-                className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
-            >
-                Go Back
-            </a>
+      import Link from "next/link";
+
+      <Link href="/">
+        <a className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition">
+          Go Back
+        </a>
+      </Link>
   <h1 className="text-2xl font-bold mb-6 text-center">Select Your Friends</h1>
   <div className="flex flex-wrap gap-4 ">
     {friends.map((friend) => (
@@ -64,19 +67,20 @@ export default function SelectFriendsPage() {
         key={friend.steamid}
         className={`p-4 border rounded-lg shadow-lg cursor-pointer transition-all flex flex-col items-center w-48 h-48
           ${
-            selectedFriends.includes(friend.steamid)
-              ? "bg-lime-300 text-black"
-              : "bg-gray-700 hover:bg-gray-600"
+        selectedFriends.includes(friend.steamid)
+          ? "bg-lime-300 text-black"
+          : "bg-gray-700 hover:bg-gray-600"
           }`}
         onClick={() => toggleSelect(friend.steamid)}
       >
-        <img
+        <Image
           src={friend.avatarfull}
           alt={friend.personaname}
-          className="w-20 h-20 rounded-full mb-2 border-2 border-gray-300"
+          width={80}
+          height={80}
+          className="rounded-full mb-2 border-2 border-gray-300"
         />
         <p className="text-lg font-semibold text-center mt-3">{friend.personaname}</p>
-
       </div>
     ))}
   </div>

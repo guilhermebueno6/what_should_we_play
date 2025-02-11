@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -38,17 +40,17 @@ export default function ShowCommonGamesPage() {
 
     return (
         <main className="min-h-screen bg-gray-900 text-white p-6">
-            <a
+            <Link
                 href="/friends/select"
                 className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition"
             >
                 Go Back
-            </a>
+            </Link>
             <h1 className="text-2xl font-bold mb-6 text-center">Common Games</h1>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {games.map((game) => (
                     <div key={game.appid} className="p-4 border rounded-lg shadow-lg cursor-pointer transition-all flex flex-col items-center game-card">
-                        <img src={`https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg`} alt={game.name} className="w-24 h-24 object-cover rounded-lg" />
+                        <Image src={`https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg`} alt={game.name} width={96} height={96} className="w-24 h-24 object-cover rounded-lg" />
                         <h2 className="text-lg font-bold mt-2">{game.name}</h2>
                     </div>
                 ))}
